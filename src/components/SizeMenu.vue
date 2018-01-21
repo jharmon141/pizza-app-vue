@@ -11,6 +11,7 @@
         </select>
 
         <a 
+          v-on:click="handleSubmitPizza"
           class="button is-outlined">
           Submit
         </a>
@@ -24,21 +25,18 @@
 <script>
   export default  {
     name: 'SizeMenu',
-    props: ['pizzaSizes', 'selectPizzaSize'],
+    props: ['pizzaSizes', 'submitPizzaSize'],
 
-    mounted() {
-
-    },
     data() {
       return {
         selected: 'small'
       }
     },
+
     methods: {
-
-    },
-    computed: {
-
+      handleSubmitPizza() {
+        this.submitPizzaSize(this.selected)
+      }
     }
 }
 </script>

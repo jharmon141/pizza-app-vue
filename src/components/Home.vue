@@ -7,7 +7,7 @@
     </div>
 
     <div v-else-if="!sizeChosen">
-      <size-menu v-bind="{pizzaSizes, selectPizzaSize}"></size-menu>
+      <size-menu v-bind="{pizzaSizes, submitPizzaSize}"></size-menu>
     </div>
 
     <div v-else>
@@ -31,29 +31,22 @@ import CartLink from './CartLink.vue'
     },
     props: ['pizzaSizes'],
 
-    mounted() {
-    },
-
     data() {
       return {
         sizeChosen: false,
-        selectedSize: 'small',
+        selectedSize: '',
         pizza: {}
       }
     },
 
     methods: {
-      selectPizzaSize(size) {
+      submitPizzaSize(size) {
         this.selectedSize = size
-      },
-
-      submitPizzaSize() {
-        
+        this.pizza = this.pizzaSizes.find(pizza => {
+          return pizza.name == size
+        })
+        this.sizeChosen = true
       }
-    },
-
-    computed: {
-
     }
 }
 </script>
