@@ -1,10 +1,7 @@
 <template>
-  <div id="cart-link" class="columns">
+  <div class="columns cart-link">
     <div class="column is-2 is-offset-10">
-      <router-link
-        to="/cart">
-        ({{ quantity }}) Cart
-      </router-link>
+      <router-link to="/cart">({{ quantity }}) Cart</router-link>
     </div>
   </div>
 </template>
@@ -12,14 +9,14 @@
 <script>
 import store from '@/store/index.js'
 
-  export default  {
-    name: 'CartLink',
-    props: [],
-    computed: {
-      quantity() {
-        return this.$store.state.pizzas.length
-      }
+export default  {
+  name: 'CartLink',
+  props: [],
+  computed: {
+    quantity() {
+      return this.$store.state.pizzas.length
     }
+  }
 
 }
 </script>

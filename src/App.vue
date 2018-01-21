@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <router-view v-bind="{pizzaSizes}"></router-view>
+    <router-view 
+      v-bind="{pizzaSizes}">
+    </router-view>
   </div>
 </template>
+
 
 <script>
 import gql from 'graphql-tag'
@@ -33,6 +36,7 @@ export default {
   }
 }
 </script>
+
 
 <style>
 #app {

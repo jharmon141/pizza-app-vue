@@ -6,11 +6,7 @@
 
         <h1>Your cart is empty</h1>
 
-        <router-link
-          to="/"
-          class="button is-outlined">
-          Add pizzas
-        </router-link>
+        <router-link to="/" class="button is-outlined">Add pizzas</router-link>
 
       </div>
     </div>
@@ -50,6 +46,10 @@ import store from '@/store/index.js'
 
 #empty {
   margin-top: 50px;
+}
+
+#empty h1 {
+  margin-bottom: 25px;
 }
 
 </style>

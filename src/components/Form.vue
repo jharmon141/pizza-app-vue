@@ -3,23 +3,23 @@
 </template>
 
 <script>
-  export default  {
-    name: 'Form',
-    props: [],
-    mounted() {
+export default  {
+  name: 'Form',
+  props: [],
+  mounted() {
 
-    },
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    computed: {
+  },
+  data() {
+    return {
 
     }
+  },
+  methods: {
+
+  },
+  computed: {
+
+  }
 }
 </script>
 

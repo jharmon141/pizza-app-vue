@@ -5,16 +5,10 @@
       <h2>Choose a size:</h2>
       <div class="select">
         <select v-model="selected">
-          <option v-for="pizza in pizzaSizes" v-bind:value="pizza.name">
-            {{ pizza.name.toUpperCase() }}
-          </option>
+          <option v-for="pizza in pizzaSizes" v-bind:value="pizza.name">{{ pizza.name.toUpperCase() }}</option>
         </select>
 
-        <a 
-          v-on:click="handleSubmitPizza"
-          class="button is-outlined">
-          Submit
-        </a>
+        <a v-on:click="handleSubmitPizza" class="button is-outlined">Submit</a>
 
       </div>
     </div>
@@ -23,21 +17,21 @@
 </template>
 
 <script>
-  export default  {
-    name: 'SizeMenu',
-    props: ['pizzaSizes', 'submitPizzaSize'],
+export default  {
+  name: 'SizeMenu',
+  props: ['pizzaSizes', 'submitPizzaSize'],
 
-    data() {
-      return {
-        selected: 'small'
-      }
-    },
-
-    methods: {
-      handleSubmitPizza() {
-        this.submitPizzaSize(this.selected)
-      }
+  data() {
+    return {
+      selected: 'small'
     }
+  },
+
+  methods: {
+    handleSubmitPizza() {
+      this.submitPizzaSize(this.selected)
+    }
+  }
 }
 </script>
 
