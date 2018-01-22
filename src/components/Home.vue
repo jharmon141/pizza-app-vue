@@ -11,7 +11,7 @@
     </div>
 
     <div v-else>
-      <pizza-form/>
+      <pizza-form v-bind="{pizza, resetForm}"></pizza-form>
     </div>
 
   </div>
@@ -46,6 +46,11 @@ export default  {
         return pizza.name == size
       })
       this.sizeChosen = true
+    },
+
+    resetForm(){
+      this.sizeChosen = false
+      this.pizza = {}
     }
   }
 }
