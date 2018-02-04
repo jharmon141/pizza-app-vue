@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>{{ pizza.size | Capitalize }}</td>
+    <td>{{ pizza.size }}</td>
 
     <td>
       <ul>
@@ -12,8 +12,8 @@
 
     <td>
       <div class="select">
-        <select v-model="quantity">
-          <option v-for="number in quantityOptions" :value="number">{{number}}</option>
+        <select v-on:change="handleUpdateQuantity" v-model="quantity">
+          <option  v-for="number in quantityOptions" :value="number">{{number}}</option>
         </select>
       </div>
     </td>
@@ -23,13 +23,15 @@
     </td>
 
     <td>
-      <span class="delete">X</span>
+      <span v-on:click="handleDelete" class="delete">X</span>
     </td>
 
   </tr>
 </template>
 
 <script>
+import store from '@/store/index.js'
+
 export default  {
   name: 'CartItem',
   props: ['pizza'],
@@ -46,15 +48,30 @@ export default  {
     Capitalize(val) {
       return val.charAt(0).toUpperCase() + val.slice(1)
     }
-
   },
 
   methods: {
+    handleDelete(){
+      const pizzaId = this.pizza.id
+      this.$store.dispatch('handleRemovePizza', pizzaId)
+    },
+
+    handleUpdateQuantity() {
+      const pizza = {
+        id: this.pizza.id,
+        toppings: this.pizza.toppings,
+        size: this.pizza.size,
+        pricePerPizza: this.pizza.pricePerPizza,
+        quantity: this.quantity
+      }
+
+      this.$store.dispatch('handleUpdatePizza', pizza)
+    }
 
   },
   computed: {
     price() {
-      return this.pizza.pricePerPizza * this.pizza.quantity
+      return this.pizza.pricePerPizza * this.quantity
     }
 
   }

@@ -78,7 +78,7 @@ export default  {
       this.pizzas.forEach(pizza => {
         total += pizza.pricePerPizza*pizza.quantity
       })
-      return total
+      return total.toFixed(2)
     }
   }
 }
