@@ -71,7 +71,7 @@ export default  {
   },
   computed: {
     price() {
-      return this.pizza.pricePerPizza * this.quantity
+      return (this.pizza.pricePerPizza * this.quantity).toFixed(2)
     }
 
   }
@@ -79,4 +79,8 @@ export default  {
 </script>
 
 <style>
+
+.delete {
+  margin-left: 25px;
+}
 </style>
