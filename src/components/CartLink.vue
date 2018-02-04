@@ -33,8 +33,4 @@ a {
   color: #505050;
 }
 
-a:hover {
-  color: #23527c;
-  text-decoration: underline;
-}
 </style>

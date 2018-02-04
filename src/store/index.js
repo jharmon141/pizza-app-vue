@@ -25,16 +25,16 @@ const store = new Vuex.Store({
    },
 
    actions: {
-     handleAddPizza: ({state, commit}) => {
-       commit('addPizza')
+     handleAddPizza: ({state, commit}, params) => {
+       commit('addPizza', params)
      },
 
-     handleRemovePizza: ({state, commit}) => {
-       commit('removePizza')
+     handleRemovePizza: ({state, commit}, params) => {
+       commit('removePizza', params)
      },
 
      handleUpdatePizza: ({state, commit}) => {
-       commit('updatePizza')
+       commit('updatePizza', params)
      },
    }
 

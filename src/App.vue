@@ -28,9 +28,11 @@ query pizzaSizes {
 
 export default {
   name: 'App',
+  
   data: () => ({
     pizzaSizes: false,
   }),
+
   apollo: {
     pizzaSizes: PizzaQuery
   }
