@@ -65,9 +65,6 @@ export default  {
     'cart-item': CartItem
   },
 
-  data: () => ({
-  }),
-
   computed: {
     pizzas() {
       return this.$store.state.pizzas
@@ -84,8 +81,8 @@ export default  {
 }
 </script>
 
-<style scoped>
 
+<style scoped>
 #empty {
   margin-top: 50px;
 }

@@ -10,7 +10,7 @@ import VueApollo from 'vue-apollo'
 Vue.config.productionTip = false
 
 const httpLink = new HttpLink({
-   uri: 'https://core-graphql.dev.waldo.photos/pizza'
+   uri: 'https://api.graph.cool/simple/v1/cjdawo5qu355s0130idyq29ze'
 });
 
 const apolloClient = new ApolloClient({

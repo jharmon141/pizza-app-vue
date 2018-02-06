@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view 
-      v-bind="{pizzaSizes}">
+      v-bind="{allPizzas}">
     </router-view>
   </div>
 </template>
@@ -11,17 +11,15 @@
 import gql from 'graphql-tag'
 
 const PizzaQuery = gql`
-query pizzaSizes {
-    pizzaSizes {
+query  {
+    allPizzas {
         name
         basePrice
         maxToppings
         toppings {
-        defaultSelected
-            topping {
-                name
-                price
-            }
+          defaultSelected
+          name
+          price
         }
     }
 }`;
@@ -30,11 +28,11 @@ export default {
   name: 'App',
   
   data: () => ({
-    pizzaSizes: false,
+    allPizzas: false,
   }),
 
   apollo: {
-    pizzaSizes: PizzaQuery
+    allPizzas: PizzaQuery
   }
 }
 </script>

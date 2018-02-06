@@ -5,7 +5,7 @@
     <td>
       <ul>
         <li v-for="(topping, index) in pizza.toppings">
-          {{ topping.topping.name }}
+          {{ topping.name }}
         </li>
       </ul>
     </td>

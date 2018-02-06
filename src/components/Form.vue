@@ -20,7 +20,7 @@
             <input 
               v-if="maxToppingsNotReached || chosenToppings.includes(topping)" 
               type="checkbox" 
-              :id="topping.topping.name" 
+              :id="topping.name" 
               :value="topping" 
               :checked="topping.defaultSelected" 
               v-model="chosenToppings">
@@ -28,7 +28,7 @@
               v-else 
               type="checkbox" 
               disabled>
-            <label :for="topping.topping.name">{{topping.topping.name}} (${{topping.topping.price.toFixed(2)}})</label>
+            <label :for="topping.name">{{topping.name}} (${{topping.price.toFixed(2)}})</label>
           </div>
         </div>
       </div>
@@ -102,14 +102,14 @@ export default  {
 
   computed: {
     maxToppingDisplay() {
-      if (this.pizza.maxToppings === null) {
+      if (this.pizza.maxToppings === 0) {
         return "Unlimited!"
       } 
       return this.pizza.maxToppings
     },
 
     maxToppingsNotReached() {
-      if (this.pizza.maxToppings === null) {
+      if (this.pizza.maxToppings === 0) {
         return true
       }
       return this.pizza.maxToppings > this.chosenToppings.length
@@ -118,7 +118,7 @@ export default  {
     pricePerPizza(){
       const basePrice = this.pizza.basePrice
       const toppingsTotal = this.chosenToppings.reduce((prev, curr) => {
-        return prev + curr.topping.price
+        return prev + curr.price
       }, 0)
 
       return (toppingsTotal + basePrice).toFixed(2)

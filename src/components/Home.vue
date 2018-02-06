@@ -2,12 +2,12 @@
   <div id="home">
     <cart-link/>
 
-    <div v-if="!pizzaSizes">
+    <div v-if="!allPizzas">
       Loading...
     </div>
 
     <div v-else-if="!sizeChosen">
-      <size-menu v-bind="{pizzaSizes, submitPizzaSize}"></size-menu>
+      <size-menu v-bind="{allPizzas, submitPizzaSize}"></size-menu>
     </div>
 
     <div v-else>
@@ -29,20 +29,18 @@ export default  {
     'cart-link': CartLink,
     'pizza-form': Form
   },
-  props: ['pizzaSizes'],
+  props: ['allPizzas'],
 
-  data() {
-    return {
+  data: () => ({
       sizeChosen: false,
       selectedSize: '',
       pizza: {}
-    }
-  },
+  }),
 
   methods: {
     submitPizzaSize(size) {
       this.selectedSize = size
-      this.pizza = this.pizzaSizes.find(pizza => {
+      this.pizza = this.allPizzas.find(pizza => {
         return pizza.name == size
       })
       this.sizeChosen = true
@@ -55,6 +53,3 @@ export default  {
   }
 }
 </script>
-
-<style>
-</style>
