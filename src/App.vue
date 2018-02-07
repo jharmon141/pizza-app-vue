@@ -8,21 +8,7 @@
 
 
 <script>
-import gql from 'graphql-tag'
-
-const PizzaQuery = gql`
-query  {
-    allPizzas {
-        name
-        basePrice
-        maxToppings
-        toppings {
-          defaultSelected
-          name
-          price
-        }
-    }
-}`;
+import PizzaQuery from './graphQL/queries.js'
 
 export default {
   name: 'App',
