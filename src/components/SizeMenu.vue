@@ -21,11 +21,9 @@ export default  {
   name: 'SizeMenu',
   props: ['allPizzas', 'submitPizzaSize'],
 
-  data() {
-    return {
-      selected: 'small'
-    }
-  },
+  data: () => ({
+    selected: 'small'
+  }),
 
   methods: {
     handleSubmitPizza() {
