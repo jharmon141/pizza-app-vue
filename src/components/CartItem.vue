@@ -4,7 +4,7 @@
 
     <td>
       <ul>
-        <li v-for="(topping, index) in pizza.toppings">
+        <li v-for="(topping, index) in pizza.toppings" :key="topping.name">
           {{ topping.name }}
         </li>
       </ul>
@@ -13,7 +13,7 @@
     <td>
       <div class="select">
         <select v-on:change="handleUpdateQuantity" v-model="quantity">
-          <option  v-for="number in quantityOptions" :value="number">{{number}}</option>
+          <option  v-for="number in quantityOptions" :key="number" :value="number">{{number}}</option>
         </select>
       </div>
     </td>
