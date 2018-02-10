@@ -1,4 +1,4 @@
-# pizza-app-vue
+# Pizza App Vue 
 
 > A Vue.js project
 
