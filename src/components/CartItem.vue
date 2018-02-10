@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>{{ pizza.size }}</td>
+    <td>{{ pizza.size | Capitalize }}</td>
 
     <td>
       <ul>

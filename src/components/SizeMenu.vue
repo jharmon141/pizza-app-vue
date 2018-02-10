@@ -27,7 +27,7 @@ export default  {
 
   methods: {
     handleSubmitPizza() {
-      this.submitPizzaSize(this.selected)
+      this.$emit('submitPizzaSize', this.selected)
     }
   }
 }

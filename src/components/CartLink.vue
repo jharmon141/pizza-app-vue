@@ -14,8 +14,9 @@ export default  {
   props: [],
   computed: {
     quantity() {
-      let total = 0
-      this.$store.state.pizzas.forEach(pizza => total += pizza.quantity)
+      const total = this.$store.state.pizzas.reduce((prev, curr) => {
+        return prev + curr.quantity
+      }, 0)
 
       return total
     }

@@ -14,22 +14,20 @@
         <h4>Select your toppings:</h4>
       </div>
       
-      <div class="column is-3">
-        <div id="toppings">
-          <div v-for="topping in pizza.toppings">
-            <input 
-              v-if="maxToppingsNotReached || chosenToppings.includes(topping)" 
-              type="checkbox" 
-              :id="topping.name" 
-              :value="topping" 
-              :checked="topping.defaultSelected" 
-              v-model="chosenToppings">
-            <input 
-              v-else 
-              type="checkbox" 
-              disabled>
-            <label :for="topping.name">{{topping.name}} (${{topping.price.toFixed(2)}})</label>
-          </div>
+      <div id="toppings" class="column is-3">
+        <div v-for="topping in pizza.toppings">
+          <input 
+          v-if="maxToppingsNotReached || chosenToppings.includes(topping)" 
+          type="checkbox" 
+          :id="topping.name" 
+          :value="topping" 
+          :checked="topping.defaultSelected" 
+          v-model="chosenToppings">
+          <input 
+          v-else 
+          type="checkbox" 
+          disabled>
+          <label :for="topping.name">{{topping.name}} (${{topping.price.toFixed(2)}})</label>
         </div>
       </div>
     </div>
@@ -84,7 +82,7 @@ export default  {
 
   methods: {
     handleResetForm() {
-      this.resetForm()
+      this.$emit('resetForm')
     },
 
     handleSubmitPizza() {

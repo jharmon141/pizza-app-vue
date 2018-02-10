@@ -7,11 +7,11 @@
     </div>
 
     <div v-else-if="!sizeChosen">
-      <size-menu v-bind="{allPizzas, submitPizzaSize}"></size-menu>
+      <size-menu :allPizzas="allPizzas" v-on:submitPizzaSize="submitPizzaSize"></size-menu>
     </div>
 
     <div v-else>
-      <pizza-form v-bind="{pizza, resetForm}"></pizza-form>
+      <pizza-form :pizza="pizza" v-on:resetForm="resetForm"></pizza-form>
     </div>
 
   </div>

@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              <cart-item v-for="pizza in pizzas" :key="pizza.id" v-bind="{pizza}"></cart-item>
+              <cart-item v-for="pizza in pizzas" :key="pizza.id" :pizza="pizza"></cart-item>
             </tbody>
           </table>
         </div>
