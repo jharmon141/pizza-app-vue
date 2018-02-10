@@ -2,9 +2,9 @@
 
 > A Vue.js project
 
-<img align="center" height="300px" src="https://i.imgur.com/nLCtlCd.png"/>
-<img align="center" height="300px" src="https://i.imgur.com/MEIoTjv.png"/>
-<img align="center" height="300px" src="https://i.imgur.com/SxoJnUQ.png"/>
+<p align="center"><img src="https://i.imgur.com/nLCtlCd.png"/></p>
+<p align="center"><img src="https://i.imgur.com/MEIoTjv.png"/></p>
+<p align="center"><img src="https://i.imgur.com/SxoJnUQ.png"/></p>
 
 ## Build Setup
 
