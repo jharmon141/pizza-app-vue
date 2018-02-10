@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+<p align="center"><img align="center" height="300px" src="https://i.imgur.com/nLCtlCd.png"/></p>
+<p align="center"><img align="center" height="300px" src="https://i.imgur.com/MEIoTjv.png"/></p>
+<p align="center"><img align="center" height="300px" src="https://i.imgur.com/SxoJnUQ.png"/></p>
+
 ## Build Setup
 
 ``` bash
