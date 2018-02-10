@@ -2,34 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import SizeMenu from '@/components/SizeMenu'
 import router from '@/router'
+import mockData from '../mockData.js'
 
-const store = new Vuex.Store ({
-  state: {
-    pizzas: [{name: 'small'}, {name: 'medium'}, {name: 'large'}]
-  }
+let store = new Vuex.Store ({
+  state: Object.assign( {}, mockData.mockStore.state)
 })
 
 const propsData = { 
-  pizzaSizes: [
-    {
-      "name": "small",
-      "basePrice": 9.89,
-      "maxToppings": 3,
-      "__typename": "pizzaSize"
-    },
-    {
-      "name": "medium",
-      "basePrice": 10.89,
-      "maxToppings": 5,
-      "__typename": "pizzaSize"
-    },
-    {
-      "name": "large",
-      "basePrice": 13.49,
-      "maxToppings": null,
-      "__typename": "pizzaSize"
-    }
-  ]
+  allPizzas: mockData.allPizzas
 }
 
 describe('SizeMenu.vue', () => {
@@ -37,7 +17,7 @@ describe('SizeMenu.vue', () => {
   const vm = new Constructor({ propsData, router, store, }).$mount()
 
   it('should receive pizza sizes data', () => {
-    assert.equal(vm.pizzaSizes.length, 3)
+    assert.equal(vm.allPizzas.length, 3)
   })
 
   it('should initialize with selected size small', () => {

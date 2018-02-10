@@ -2,85 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Form from '@/components/Form'
 import router from '@/router'
+import mockData from '../mockData.js'
 
 const store = new Vuex.Store ({
-  state: {
-    pizzas: []
-  }
+  state: Object.assign( {}, mockData.mockStore.state),
+  actions: Object.assign( {}, mockData.mockStore.actions),
+  mutations: Object.assign( {}, mockData.mockStore.mutations)
 })
 
 const propsData = {
-  pizza: {
-    "name": "small",
-    "basePrice": 9.89,
-    "maxToppings": 3,
-    "toppings": [
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "pepperoni",
-          "price": 0.4,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "bannana peps",
-          "price": 0.89,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "sausage",
-          "price": 1.29,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "onion",
-          "price": 0.29,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "green olives",
-          "price": 0.39,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": true,
-        "topping": {
-          "name": "cheese",
-          "price": 0.1,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      },
-      {
-        "defaultSelected": false,
-        "topping": {
-          "name": "bell peps",
-          "price": 0.22,
-          "__typename": "topping"
-        },
-        "__typename": "pizzaToppingConnection"
-      }
-    ],
-    "__typename": "pizzaSize"
-  }
+  pizza: mockData.allPizzas[0]
 }
 
 describe('Form.vue', () => {
@@ -91,12 +22,43 @@ describe('Form.vue', () => {
     assert.equal(vm.pizza, propsData.pizza)
   })
 
-  it('should add and remove toppings', () => {
+  it('should initialize with chosen toppings', () => {
+    assert.equal(vm.chosenToppings.length, 1)
   })
 
-  it('should update total when toppings and quantity change', () => {
+  it('should initialize with correct size, max toppings, quantity, base total, and grand total', () => {
+    assert.equal(vm.quantity, 1)
+    assert.equal(vm.chosenToppings.length, 1)
+    assert.equal(vm.pizza.maxToppings, 3)
+    assert.equal(vm.pizza.basePrice, 9.89)
+    assert.equal(vm.grandTotal, 9.99)
   })
 
-  it('should add the pizzas to the vuex store cart', () => {
+  it('should add toppings and update price', () => {
+    vm.chosenToppings.push(vm.pizza.toppings[0])
+    assert.equal(vm.grandTotal, 10.39)
+    vm.chosenToppings.push(vm.pizza.toppings[1])
+    assert.equal(vm.grandTotal, 11.28)
+  })
+
+  it('should remove toppings and update price', () => {
+    vm.chosenToppings.pop()
+    assert.equal(vm.grandTotal, 10.39)
+    vm.chosenToppings.pop()
+    assert.equal(vm.grandTotal, 9.99)
+  })
+
+  it('should change quantity and update price', () => {
+    vm.quantity = 3
+    assert.equal(vm.grandTotal, 29.97)
+    vm.quantity = 7 
+    assert.equal(vm.grandTotal, 69.93)
+    vm.chosenToppings.push(vm.pizza.toppings[0])
+    assert.equal(vm.grandTotal, 72.73)
+  })
+
+  it('should add pizza to vuex store', () => {
+    vm.handleSubmitPizza()
+    assert.equal(vm.$store.state.pizzas.length, 4)
   })
 })

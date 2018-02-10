@@ -2,34 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Home from '@/components/Home'
 import router from '@/router'
+import mockData from '../mockData.js'
 
-const store = new Vuex.Store ({
+let store = new Vuex.Store ({
   state: {
     pizzas: []
   }
 })
 
 const propsData = { 
-  pizzaSizes: [
-    {
-      "name": "small",
-      "basePrice": 9.89,
-      "maxToppings": 3,
-      "__typename": "pizzaSize"
-    },
-    {
-      "name": "medium",
-      "basePrice": 10.89,
-      "maxToppings": 5,
-      "__typename": "pizzaSize"
-    },
-    {
-      "name": "large",
-      "basePrice": 13.49,
-      "maxToppings": null,
-      "__typename": "pizzaSize"
-    }
-  ]
+  allPizzas: mockData.allPizzas
 }
 
 describe('Home.vue', () => {
