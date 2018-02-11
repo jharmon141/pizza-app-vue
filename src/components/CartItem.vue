@@ -81,6 +81,6 @@ export default  {
 <style>
 
 .delete {
-  margin-left: 25px;
+  margin-left: 20px;
 }
 </style>
