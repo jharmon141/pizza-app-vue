@@ -38,7 +38,10 @@
               </tr>
             </thead>
             <tbody>
-              <cart-item v-for="pizza in pizzas" :key="pizza.id" :pizza="pizza"></cart-item>
+              <CartItem 
+                v-for="pizza in pizzas" 
+                :key="pizza.id" 
+                :pizza="pizza" />
             </tbody>
           </table>
         </div>
@@ -62,7 +65,7 @@ import CartItem from './CartItem.vue'
 export default  {
   name: 'Cart',
   components: {
-    'cart-item': CartItem
+    CartItem
   },
 
   computed: {
@@ -71,10 +74,9 @@ export default  {
     },
 
     grandTotal() {
-      let total = 0
-      this.pizzas.forEach(pizza => {
-        total += pizza.pricePerPizza*pizza.quantity
-      })
+      const total = this.pizzas.reduce((prev, curr) => {
+        return prev + curr.pricePerPizza*curr.quantity
+      }, 0)
       return total.toFixed(2)
     }
   }

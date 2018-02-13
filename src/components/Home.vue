@@ -1,18 +1,18 @@
 <template>
   <div id="home">
-    <cart-link/>
+    <CartLink/>
 
-    <div v-if="!allPizzas">
-      Loading...
-    </div>
+    <Loading v-if="!allPizzas" />
 
-    <div v-else-if="!sizeChosen">
-      <size-menu :allPizzas="allPizzas" v-on:submitPizzaSize="submitPizzaSize"></size-menu>
-    </div>
+    <SizeMenu 
+      v-else-if="!sizeChosen"
+      :allPizzas="allPizzas" 
+      v-on:submitPizzaSize="submitPizzaSize" />
 
-    <div v-else>
-      <pizza-form :pizza="pizza" v-on:resetForm="resetForm"></pizza-form>
-    </div>
+    <PizzaForm 
+      v-else
+      :pizza="pizza" 
+      v-on:resetForm="resetForm" />
 
   </div>
 </template>
@@ -21,20 +21,22 @@
 import Form from './Form.vue'
 import SizeMenu from './SizeMenu.vue'
 import CartLink from './CartLink.vue'
+import Loading from './Loading.vue'
 
 export default  {
   name: 'Home',
   components: {
-    'size-menu': SizeMenu,
-    'cart-link': CartLink,
-    'pizza-form': Form
+    SizeMenu,
+    CartLink,
+    "PizzaForm": Form,
+    Loading
   },
   props: ['allPizzas'],
 
   data: () => ({
-      sizeChosen: false,
-      selectedSize: '',
-      pizza: {}
+    sizeChosen: false,
+    selectedSize: '',
+    pizza: {}
   }),
 
   methods: {

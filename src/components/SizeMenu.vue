@@ -3,16 +3,21 @@
     <div class="column is-4 is-offset-4">
 
       <h2>Choose a size:</h2>
+
       <div class="select">
         <select v-model="selected">
-          <option v-for="pizza in allPizzas" :value="pizza.name" :key="pizza.name">{{ pizza.name.toUpperCase() }}</option>
+          <option 
+            v-for="pizza in allPizzas" 
+            :value="pizza.name" 
+            :key="pizza.name">{{ pizza.name.toUpperCase() }}</option>
         </select>
 
-        <a v-on:click="handleSubmitPizza" class="button is-outlined">Submit</a>
+        <a 
+          v-on:click="handleSubmitPizza" 
+          class="button is-outlined">Submit</a>
 
       </div>
     </div>
-
   </div>
 </template>
 
