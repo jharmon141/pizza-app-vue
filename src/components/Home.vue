@@ -2,15 +2,13 @@
   <div id="home">
     <CartLink/>
 
-    <Loading v-if="!allPizzas" />
-
     <SizeMenu 
-      v-else-if="!sizeChosen"
+      v-if="!sizeChosen" 
       :allPizzas="allPizzas" 
       v-on:submitPizzaSize="submitPizzaSize" />
 
     <PizzaForm 
-      v-else
+      v-else 
       :pizza="pizza" 
       v-on:resetForm="resetForm" />
 
@@ -21,15 +19,13 @@
 import Form from './Form.vue'
 import SizeMenu from './SizeMenu.vue'
 import CartLink from './CartLink.vue'
-import Loading from './Loading.vue'
 
 export default  {
   name: 'Home',
   components: {
     SizeMenu,
     CartLink,
-    "PizzaForm": Form,
-    Loading
+    "PizzaForm": Form
   },
   props: ['allPizzas'],
 
@@ -55,3 +51,6 @@ export default  {
   }
 }
 </script>
+
+<style scoped>
+</style>
