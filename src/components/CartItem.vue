@@ -5,7 +5,7 @@
     <td>
       <ul>
         <li 
-          v-for="(topping, index) in pizza.toppings" 
+          v-for="topping in pizza.toppings" 
           :key="topping.name">
           {{ topping.name }}
         </li>

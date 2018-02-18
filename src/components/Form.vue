@@ -16,7 +16,7 @@
         </div>
 
         <div id="toppings" class="column is-3">
-          <div v-for="topping in pizza.toppings">
+          <div v-for="topping in pizza.toppings" :key="topping.name">
             <input 
             v-if="maxToppingsNotReached || chosenToppings.includes(topping)" 
             type="checkbox" 
@@ -38,7 +38,7 @@
           Quantity: 
           <div class="select">
             <select v-model="quantity">
-              <option v-for="number in quantityOptions" :value="number">{{number}}</option>
+              <option v-for="number in quantityOptions" :value="number" :key="number">{{number}}</option>
             </select>
           </div>
         </div>
