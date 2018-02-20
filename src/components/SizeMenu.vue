@@ -1,6 +1,8 @@
 <template>
+
   <transition tag="div" class="size-menu-slide" name="component-slide" >
     <div id="size-menu" >
+
       <div class="columns">
         <div class="column is-4 is-offset-4">
 

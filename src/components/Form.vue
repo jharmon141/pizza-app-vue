@@ -1,6 +1,8 @@
 <template>
+
   <transition tag="div" class="size-menu-slide" name="component-slide" >
     <div id="form">
+
       <div class="columns">
         <div class="column is-4 is-offset-4">
           <h1 id="size">Size: {{pizza.name.toUpperCase()}}</h1>
@@ -28,7 +30,7 @@
             v-else 
             type="checkbox" 
             disabled>
-            <label :for="topping.name">{{topping.name}} (${{topping.price.toFixed(2)}})</label>
+            <label :for="topping.name">{{ topping.name }} (${{ topping.price.toFixed(2) }})</label>
           </div>
         </div>
       </div>
@@ -38,7 +40,7 @@
           Quantity: 
           <div class="select">
             <select v-model="quantity">
-              <option v-for="number in quantityOptions" :value="number" :key="number">{{number}}</option>
+              <option v-for="number in quantityOptions" :value="number" :key="number">{{ number }}</option>
             </select>
           </div>
         </div>
@@ -46,7 +48,7 @@
 
       <div class="columns total">
         <div class="column is-4 is-offset-4">
-          Total: ${{grandTotal.toFixed(2)}}
+          Total: ${{ grandTotal.toFixed(2) }}
         </div>
       </div>
 

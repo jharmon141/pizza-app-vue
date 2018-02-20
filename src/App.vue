@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <router-view 
-      v-bind="{ allPizzas }">
-    </router-view>
+
+    <router-view v-bind="{ allPizzas }"></router-view>
+
   </div>
 </template>
 

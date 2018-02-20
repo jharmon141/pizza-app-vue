@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+
     <CartLink/>
 
     <SizeMenu 
