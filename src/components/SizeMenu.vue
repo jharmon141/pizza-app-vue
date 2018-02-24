@@ -9,7 +9,7 @@
           <h2>Choose a size:</h2>
 
           <div v-if="!allPizzas">
-            Loding...
+            Loading...
           </div>
 
           <div v-else class="select">
