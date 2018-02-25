@@ -21,7 +21,7 @@
             </select>
 
             <a 
-              v-on:click="handleSubmitPizza" 
+              v-on:click="$emit('submitPizzaSize', selected)" 
               class="button is-outlined">Submit</a>
 
           </div>
@@ -39,15 +39,10 @@ export default  {
 
   data: () => ({
     selected: 'small'
-  }),
-
-  methods: {
-    handleSubmitPizza() {
-      this.$emit('submitPizzaSize', this.selected)
-    }
-  }
+  })
 }
 </script>
+
 
 <style scoped>
 .component-slide-leave-active, .component-slide-enter-active {

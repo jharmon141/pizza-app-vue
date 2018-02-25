@@ -1,7 +1,7 @@
 <template>
   <div id="home">
 
-    <CartLink/>
+    <CartLink />
 
     <SizeMenu 
       v-if="!sizeChosen" 
@@ -32,8 +32,8 @@ export default  {
 
   data: () => ({
     sizeChosen: false,
-    selectedSize: '',
-    pizza: {}
+    selectedSize: null,
+    pizza: null 
   }),
 
   methods: {

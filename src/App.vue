@@ -14,7 +14,7 @@ export default {
   name: 'App',
   
   data: () => ({
-    allPizzas: false,
+    allPizzas: null,
   }),
 
   apollo: {

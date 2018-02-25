@@ -49,7 +49,7 @@
 
       <div class="columns">
         <div class="column is-4 is-offset-4">
-          <h3>Order Total: ${{ grandTotal }}</h3>
+          <h3>Order Total: ${{ $store.getters.grandTotal }}</h3>
         </div>
       </div>
 
@@ -71,13 +71,6 @@ export default  {
   computed: {
     pizzas() {
       return this.$store.state.pizzas
-    },
-
-    grandTotal() {
-      const total = this.pizzas.reduce((prev, curr) => {
-        return prev + curr.pricePerPizza*curr.quantity
-      }, 0)
-      return total.toFixed(2)
     }
   }
 }

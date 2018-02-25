@@ -5,38 +5,55 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 
-   state: {
-     pizzas: [],
-     nextPizzaId: 1
-   },
+  state: {
+    pizzas: [],
+    nextPizzaId: 1
+  },
 
-   mutations: {
-     addPizza: (state, params) => {
-       const newPizza = Object.assign({}, params, { id: state.nextPizzaId })
-       state.nextPizzaId += 1
-       state.pizzas.push(newPizza)
-     },
+  getters: {
+    totalNumberOfPizzas: state => {
+      return state.pizzas.reduce((prev, curr) => {
+        return prev + curr.quantity
+      }, 0)
+    },
 
-     removePizza: (state, params) => {
-       state.pizzas = state.pizzas.filter(pizza => pizza.id !== params)
-     },
+    grandTotal: state => {
+      const total = state.pizzas.reduce((prev, curr) => {
+        return prev + curr.pricePerPizza*curr.quantity
+      }, 0)
 
-     updatePizza:(state, params) => {
-       const pizzaIndex = state.pizzas.findIndex(pizza => pizza.id == params.id)
-       state.pizzas.splice(pizzaIndex, 1, params)
-     }
-   },
+      return total.toFixed(2)
+    }
+
+  },
+
+  mutations: {
+    addPizza: (state, params) => {
+      const newPizza = Object.assign({}, params, { id: state.nextPizzaId })
+      state.nextPizzaId += 1
+      state.pizzas.push(newPizza)
+    },
+
+    removePizza: (state, params) => {
+      state.pizzas = state.pizzas.filter(pizza => pizza.id !== params)
+    },
+
+    updatePizza: (state, params) => {
+      const pizzaIndex = state.pizzas.findIndex(pizza => pizza.id == params.id)
+      state.pizzas.splice(pizzaIndex, 1, params)
+    }
+  },
 
   actions: {
-    handleAddPizza: ({state, commit}, params) => {
+    handleAddPizza: ({ state, commit }, params) => {
       commit('addPizza', params)
     },
 
-    handleRemovePizza: ({state, commit}, params) => {
+    handleRemovePizza: ({ state, commit }, params) => {
       commit('removePizza', params)
     },
 
-    handleUpdatePizza: ({state, commit}, params) => {
+    handleUpdatePizza: ({ state, commit }, params) => {
       commit('updatePizza', params)
     },
   }
