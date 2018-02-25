@@ -19,11 +19,7 @@ describe('Cart.vue', () => {
     assert.equal(vm_empty.$el.querySelector('a').textContent, 'Add pizzas')
   })
 
-  store = new Vuex.Store ({
-    state: Object.assign( {}, mockData.mockStore.state),
-    actions: Object.assign( {}, mockData.mockStore.actions),
-    mutations: Object.assign( {}, mockData.mockStore.mutations)
-  })
+  store = new Vuex.Store (mockData.mockStore)
 
   const vm = new Constructor({ router, store }).$mount()
 
@@ -33,7 +29,7 @@ describe('Cart.vue', () => {
   })
 
   it('should calculate grand total', () => {
-    assert.equal(vm.grandTotal, 164.37)
+    assert.equal(vm.$store.getters.grandTotal, 164.37)
   })
 
 })

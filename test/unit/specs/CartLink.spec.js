@@ -4,16 +4,14 @@ import CartLink from '@/components/CartLink'
 import router from '@/router'
 import mockData from '../mockData.js'
 
-const store = new Vuex.Store ({
-  state: Object.assign( {}, mockData.mockStore.state)
-})
+const store = new Vuex.Store (mockData.mockStore)
 
 describe('CartLink.vue', () => {
   const Constructor = Vue.extend(CartLink)
   const vm = new Constructor({ router, store }).$mount()
 
-  it('should compute pizzas.length', () => {
-    assert.equal(vm.quantity, 12)
+  it('should compute number of pizzas in cart', () => {
+    assert.equal(vm.$store.getters.totalNumberOfPizzas, 12)
   })
 
   it('should render correct contents', () => {

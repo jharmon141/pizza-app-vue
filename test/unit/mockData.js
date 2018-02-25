@@ -259,6 +259,22 @@ const mockStore = {
       }
     ],
   },
+  getters: {
+    totalNumberOfPizzas: state => {
+      return state.pizzas.reduce((prev, curr) => {
+        return prev + curr.quantity
+      }, 0)
+    },
+
+    grandTotal: state => {
+      const total = state.pizzas.reduce((prev, curr) => {
+        return prev + curr.pricePerPizza*curr.quantity
+      }, 0)
+
+      return total.toFixed(2)
+    }
+
+  },
   mutations: {
     addPizza: (state, params) => {
       const newPizza = Object.assign({}, params, { id: state.nextPizzaId })
