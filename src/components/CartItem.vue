@@ -92,8 +92,8 @@ export default  {
 }
 </script>
 
-<style>
 
+<style>
 .delete {
   margin-left: 20px;
 }
