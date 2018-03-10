@@ -31,7 +31,7 @@ const store = new Vuex.Store({
     addPizza: (state, params) => {
       const newPizza = Object.assign({}, params, { id: state.nextPizzaId })
       state.nextPizzaId += 1
-      state.pizzas.push(newPizza)
+      state.pizzas = [...state.pizzas, newPizza]
     },
 
     removePizza: (state, params) => {
@@ -39,8 +39,8 @@ const store = new Vuex.Store({
     },
 
     updatePizza: (state, params) => {
-      const pizzaIndex = state.pizzas.findIndex(pizza => pizza.id == params.id)
-      state.pizzas.splice(pizzaIndex, 1, params)
+      const newState = state.pizzas.map(pizza => pizza.id === params.id ? params : pizza)
+      state.pizzas = newState
     }
   },
 
