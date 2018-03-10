@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import SizeMenu from '@/components/SizeMenu'
 import router from '@/router'
-import mockData from '../mockData.js'
+import { mockStore, allPizzas } from '../mockData.js'
 
 let store = new Vuex.Store ({
-  state: Object.assign( {}, mockData.mockStore.state)
+  state: Object.assign( {}, mockStore.state)
 })
 
 const propsData = { 
-  allPizzas: mockData.allPizzas
+  allPizzas: allPizzas
 }
 
 describe('SizeMenu.vue', () => {

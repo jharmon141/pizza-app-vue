@@ -1,4 +1,4 @@
-const allPizzas = [
+export const allPizzas = [
   {
     "name": "small",
     "maxToppings": 3,
@@ -151,7 +151,7 @@ const allPizzas = [
   }
 ]
 
-const mockStore = {
+export const mockStore = {
   state: {
     nextPizzaId: 4,
     pizzas: [
@@ -311,4 +311,3 @@ const mockStore = {
 // orderTotal = 164.37
 // quantity = 12
 
-export default { allPizzas, mockStore }

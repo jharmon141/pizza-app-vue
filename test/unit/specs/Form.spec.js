@@ -2,16 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Form from '@/components/Form'
 import router from '@/router'
-import mockData from '../mockData.js'
+import { mockStore, allPizzas } from '../mockData.js'
 
 const store = new Vuex.Store ({
-  state: Object.assign( {}, mockData.mockStore.state),
-  actions: Object.assign( {}, mockData.mockStore.actions),
-  mutations: Object.assign( {}, mockData.mockStore.mutations)
+  state: Object.assign( {}, mockStore.state),
+  actions: Object.assign( {}, mockStore.actions),
+  mutations: Object.assign( {}, mockStore.mutations)
 })
 
 const propsData = {
-  pizza: mockData.allPizzas[0]
+  pizza: allPizzas[0]
 }
 
 describe('Form.vue', () => {

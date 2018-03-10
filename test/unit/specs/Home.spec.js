@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Home from '@/components/Home'
 import router from '@/router'
-import mockData from '../mockData.js'
+import { allPizzas } from '../mockData.js'
 
 let store = new Vuex.Store ({
   state: {
@@ -11,7 +11,7 @@ let store = new Vuex.Store ({
 })
 
 const propsData = { 
-  allPizzas: mockData.allPizzas
+  allPizzas: allPizzas
 }
 
 describe('Home.vue', () => {

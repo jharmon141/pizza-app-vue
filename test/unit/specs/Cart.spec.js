@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Cart from '@/components/Cart'
 import router from '@/router'
-import mockData from '../mockData.js'
+import { mockStore } from '../mockData.js'
 
 let store = new Vuex.Store ({
   state: {
@@ -19,7 +19,7 @@ describe('Cart.vue', () => {
     assert.equal(vm_empty.$el.querySelector('a').textContent, 'Add pizzas')
   })
 
-  store = new Vuex.Store (mockData.mockStore)
+  store = new Vuex.Store (mockStore)
 
   const vm = new Constructor({ router, store }).$mount()
 

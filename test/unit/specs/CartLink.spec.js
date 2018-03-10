@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import CartLink from '@/components/CartLink'
 import router from '@/router'
-import mockData from '../mockData.js'
+import { mockStore } from '../mockData.js'
 
-const store = new Vuex.Store (mockData.mockStore)
+const store = new Vuex.Store (mockStore)
 
 describe('CartLink.vue', () => {
   const Constructor = Vue.extend(CartLink)
